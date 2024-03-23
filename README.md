@@ -12,5 +12,6 @@ Clone the repository to your local machine.
 Install the necessary dependencies by running pip install -r requirements.txt.
 Run the Flask application using python app.py.
 Access the application through your web browser and enter the desired location to view the weather information.
+
 Contributing:
 Contributions are welcome! If you have any suggestions for improvements or new features, feel free to open an issue or submit a pull request.
