@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Hava Durumu</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Hava Durumu</h1>
+        <form action="/" method="post">
+            <input type="text"name="country" placeholder="Lütfen görmek istediğiniz bölgenin adını giriniz." autocomplete="off">
+            <button type="submit">Hava Durumu Göster</button>
+        </form>
+    </div>
+
+    <div class="weather-container">
+        <b>{% if weather %} </b>
+        <div class="weather-info">
+            <h2>Hava Durumu Bilgileri</h2>
+            <div class="weather-details">
+                  <div>
+                    <p><b>Bölge:</b> {{weather.name}}</p>
+                </div>
+                <div>
+                    <p><b>Sıcaklık:</b> {{ weather.temperature }}°C</p>
+                </div>
+                <div>
+                  <p><b>Nem Oranı:</b> {{ weather.humidity }}%</p>
+                </div>
+                <div>
+                     <img src="http://openweathermap.org/img/wn/{{ weather.icon }}.png" alt="Hava Durumu İkonu">
+                </div>
+                <div>
+                    <p><b>Hissedilen:</b> {{ weather.feels_like }}°C</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
